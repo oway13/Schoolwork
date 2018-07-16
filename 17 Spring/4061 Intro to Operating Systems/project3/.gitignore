@@ -1,0 +1,5 @@
+mm.o
+main_mm
+main_malloc
+./packet_sender
+./packet_receiver

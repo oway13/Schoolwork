@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Form</title>
+    <script>
+        function valForm() {
+            var nameval = document.forms["myForm"]["placename"].value;
+            var addr1val = document.forms["myForm"]["addressline1"].value;
+            var addr2val = document.forms["myForm"]["addressline2"].value;
+
+            if ((/^[A-Za-z ]+$/.test(nameval)) == false) {
+                alert("Name should consist of uppercase and/or lowercase characters only");
+                return false;
+            }
+
+            if ((/^[A-Za-z 0-9]+$/.test(addr1val)) == false) {
+                alert("Address Line 1 must be alphanumeric");
+                return false;
+            }
+
+            if ((/^[A-Za-z 0-9]+$/.test(addr2val)) == false) {
+                alert("Address Line 2 must be alphanumeric");
+                return false;
+            }
+
+            return true;
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="places_table.html">My Places</a></li>
+            <li><a class="active" href="input_form.html">Form Input</a></li>
+        </ul>
+    </nav>
+    <div>
+        <form onsubmit="return valForm()" name="myForm" method="post" action="http://localhost:9001">
+            <p>
+                <label>Place Name:</label>
+                <input type="text" name="placename" required>
+            </p>
+            <p>
+                <label>Address Line 1:</label>
+                <input type="text" name="addressline1" required>
+            </p>
+            <p>
+                <label>Address Line 2:</label>
+                <input type="text" name="addressline2" required>
+            </p>
+            <p>
+                <label>Opening Time:</label>
+                <input type="time" name="opentime" required>
+            </p>
+            <p>
+                <label>Closing Time:</label>
+                <input type="time" name="closetime" required>
+            </p>
+            <p>
+                <label>Additional Info:</label>
+                <input type="text" name="additionalinfo">
+            </p>
+            <p>
+                <label>Additional Info URL:</label>
+                <input type="url" name="urlinfo">
+            </p>
+            <p>
+                <input type="reset" value="Clear">
+                <input type="submit" value="Submit">
+            </p>
+        </form>
+    </div>
+    <br><br>
+    <p>tested in Google Chrome</p>
+</body>
+
+</html>

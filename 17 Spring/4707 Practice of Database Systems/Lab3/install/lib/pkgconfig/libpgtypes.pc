@@ -1,0 +1,9 @@
+Name: libpgtypes
+Description: PostgreSQL libpgtypes library
+Url: http://www.postgresql.org/
+Version: 9.6.1
+Requires: 
+Requires.private: 
+Cflags: -I/home/kormi001/Documents/4707/Lab3/install/include
+Libs: -L/home/kormi001/Documents/4707/Lab3/install/lib -lpgtypes
+Libs.private:  -lm

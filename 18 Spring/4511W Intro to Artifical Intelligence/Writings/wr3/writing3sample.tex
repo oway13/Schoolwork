@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+
+
+%Instructions to compile with bibliography:
+%1. pdflatex writing3sample
+%2. bibtex writing3sample
+%3. pdflatex writing3sample
+%4. pdflatex writing3sample
+
+\title{Latex Sample File}
+
+\author{
+James Parker\\jparker@cs.umn.edu
+}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Multi-agent task allocation} 
+\label{sec:rw}
+
+Multi-agent task allocation is a well known NP-hard problem,
+giving rise to many different approximate solutions.
+Two methods for task allocation have emerged 
+as the main paradigms: threshold and auction based methods.
+In threshold methods, agents individually assess the constraints and their 
+ability to complete each task.  If an agent's abilities surpass a threshold 
+on the constraints, then the agent assigns itself to the task.  
+If not, the agent passes the information to other agents.  
+An example is \cite{Scer-Fari-05}, 
+which uses distributed constraint optimization (DCOP) as a basis for 
+task allocation.
+A comparison between DCOP and swarm techniques is provided in 
+\cite{Ferreira2010}.  
+On the other hand, 
+market inspired auction methods typically require more
+communication and are more centralized.  
+Zhang et al.~\cite{Zhang2012} present an auction based 
+approach to form executable coalitions,
+allowing multiple agents from different locations 
+to reach a task and compete it efficiently.  
+Recently, decentralized applications have been designed that add flexibility 
+to the system (e.g., \cite{Nanjanath10}).
+Our work strikes a balance between distribution and centralization, each agent is
+directed to an area by a central authority, but upon reaching the destination,
+agents act on their own logic.
+
+Other approaches have been developed, such as 
+modeling task allocation as a potential game
+\cite{Chapman2010}.
+Sandholm et al.~\cite{Sandholm99} present a generalized coalition formation 
+algorithm which produces solutions within a bound from the optimal via 
+pruning.
+The work in~\cite{Zheng08} focuses on tasks that require 
+multiple agents to complete,
+while simultaneously trying to efficiently use 
+the agent's resources and time.
+Our approach also assumes multiple agents are required, but we allow
+the requirements of tasks to change over time.
+
+Our work is most similar to Ramchurn et al.~\cite{Ramchurn10},
+except we reformulate the problem so task resources change over time.
+Instead of having deadlines for tasks that expire at specific times,
+we can consider each task having a minimum agent deadline which
+means a specific amount of agents must be assigned to the task
+by this time in order for the task to be doable.
+Urban search and rescue is a major focus of our work and we use the
+RoboCup Search and Rescue Simulator~\cite{Kitano01}, which provides
+simulations on street and building maps of real cities.
+Emergency situations are very time critical and often lacking
+in information, as outlined in \cite{Monares11}.  
+Most notably, when an emergency occurs agents are spatially
+spread out and must quickly
+coordinate with each other to accomplish tasks.
+
+
+\bibliographystyle{abbrv}
+\bibliography{./writing3sample}
+
+\end{document}
+
+

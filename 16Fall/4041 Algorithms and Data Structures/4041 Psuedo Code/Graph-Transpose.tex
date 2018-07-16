@@ -1,0 +1,20 @@
+ //A is the original adjacency list
+ALIST-TRANSPOSE(A)
+	n = |V|
+	B = new AdjList of length n
+	for i = 1 to n
+		B[i] = nil
+	for i = 1 to n
+		while A[i] != nil
+			Append(i, B[A[i]])
+			A[i] = next A[i] node
+	return B
+
+//Where A is a square n x m matrix (m=n)
+//A is formatted as an array stored in row-major order
+AMAT-TRANSPOSE(A) 
+	N=length(A)
+	for n = 1 to N-1
+		for m = n+1 to N
+			swap(A[n][m], A[m][n])
+	return A

@@ -1,0 +1,23 @@
+LIST-MERGE(K) //Where K is a list containing k lists
+	Let M be a new array
+	for i = 1 to k		//k
+		HEAP-INSERT(M, K[i]) //k*n
+	MIN-HEAPSORT(M) //k*n*log k
+
+Min-HEAPSORT(H) //O(n log n)
+	BUILD-MIN-HEAP(H)
+	for i = H.length downto 2
+		Swap(H[1], H[i])
+		H.heap-size = H.heap-size-1
+		MIN-HEAPIFY(H, 1)
+		
+BUILD-MIN-HEAP(K]) //Like BUILD-MAX-HEAP for a MIN HEAP O(n log n)
+MIN-HEAPIFY(H, 1) //Like MAX-HEAPIFY for a min heap O(log n)
+
+HEAP-INSERT(H, x) //O(n)
+	for i = 1 to H.length
+		H.heap-size = H.heap-size+1
+		H[H.heap-size] = x[i]
+		
+
+		

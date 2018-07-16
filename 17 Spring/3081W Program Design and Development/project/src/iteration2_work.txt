@@ -1,0 +1,5 @@
+Andrew Johnson
+Wyatt Kormick
+Group Archaeopteryx
+
+Wyatt changed the kTokenEnumType and scanner to recognize the boolean, True, False, and while keywords. Andrew wrote the test cases for these keywords into scanner_tests.h. Andrew wrote mysample.dsl in FCAL language. The debugging process was done jointly and was mainly focused on fixing the Makefile.

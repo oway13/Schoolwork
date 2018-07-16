@@ -1,0 +1,16 @@
+Students:
+1. Wyatt Kormick (kormi001)
+
+
+Brief Summary:
+<A Brief Summary about the change you make (1 Paragraph max)>
+
+Detailed Changes:
+1. nodeLimit.c: src/backend/executor/nodeLimit.c
+	- Line 45: Created a count integer. This increments whenever a slot is added
+						and is used to subtract from the count when testing the limit.
+	- Lines 87-107 : Removed the for loop that ignores the the first offset slots.
+	-Lines 132-137: Changed the limit testing to use count instead of offset
+	-Lines 241-274: Changed the return statement into a series of tests to determine
+									if a slot should be returned or not, based on the its position in
+									relation to the offset and limit.

@@ -1,0 +1,18 @@
+
+Todo:
+  ✔ The "Favourite places" and "Add Place" pages of your website redirect the user to "Login" page automatically before authentication. (10 points) @done(18-04-05 23:24)
+  ✔ The "Login" page shows the form elements and submit button. (5 points) @done(18-04-05 23:25)
+  ✔ After successful login validation by the server, the "Login" page redirects the user to "Favourite places" page. (10 points) @done(18-04-05 23:25)
+  ☐ If server login validation fails, an error message is displayed on "Login" page (x points)
+  ✔ and user is not allowed further access. (10-x points) @done(18-04-06 15:00)
+  ✔ The "Favourite places" page displays correctly and has operational navigation bar. (5 points) @started(18-04-05 23:26) @done(18-04-05 23:26) @lasted(29 seconds)
+  ✔ The "Favourite places" page gets the list of favorite places from server. The favorite places are dynamically added to the table displayed in the user’s browser. (20 points) @done(18-04-05 23:26)
+  ✔ The "Add Place" page displays and has an operational navigation bar. (5 points) @done(18-04-05 23:26)
+  ✔ The user can add a new place using the form present in "Add place" page. (15 points) @done(18-04-05 23:26)
+  ✔ After a new place is added using the “Add Place” page, the user is redirected to "Favourite places" page, and the users favorite places are correctly displayed. (5 points) @done(18-04-05 23:26)
+  ✔ The logout functionality works correctly. (10 points) @started(18-04-05 23:26) @done(18-04-06 14:59) @lasted(15 hours 33 minutes 27 seconds)
+  More
+  ✔ Make login page more presentable @started(18-04-06 12:34) @done(18-04-06 14:59) @lasted(2 hours 25 minutes 31 seconds)
+    ✔ Obscure password entry @done(18-04-06 14:48)
+  ☐ Input validation on addPlace
+  ✔ 404 Functionality @done(18-04-06 14:59)

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Places</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a class="active" href="places_table.html">My Places</a></li>
+            <li><a href="input_form.html">Form Input</a></li>
+        </ul>
+    </nav>
+    <br><br>
+    <div class="table">
+        <table id="places">
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Hours of Operation</th>
+                <th>Additional Information</th>
+            </tr>
+            <tr>
+                <td class="placename">University village</td>
+                <td class="placeaddress">2601 University Ave SE, Minneapolis, MN 55414</td>
+                <td>8:30AM-5PM</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="placename">Raising Cane's Chicken Fingers</td>
+                <td class="placeaddress">825 Washington Ave SE, Minneapolis, MN 55414</td>
+                <td>10:00AM-11PM</td>
+                <td>
+                    <a href="https://www.raisingcanes.com/" target="_blank">Link</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="placename">Keller Hall</td>
+                <td class="placeaddress">200 Union Street SE, Minneapolis, MN 55455</td>
+                <td>6:00AM-10:00PM</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="placename">Yudof Hall</td>
+                <td class="placeaddress">220 Delaware St SE, Minneapolis, MN 55455</td>
+                <td>12:00AM-11:59PM</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="twitter">
+        <a class="twitter-timeline" href="https://twitter.com/search?q=%23UMN%20%23UMNDriven" data-widget-id="959187214881230850">Tweets about #UMN #UMNDriven</a>
+        <script>
+            ! function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                    p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + "://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, "script", "twitter-wjs");
+
+        </script>
+    </div>
+    <div class="mapthing">
+        <table>
+            <tr class="mapthing_td">
+                <td class="mapthing_td">
+                    Radius:
+                    <input id="radius" type="number" name="radius">
+                </td>
+                <td class="mapthing_td">
+                    Nearby:
+                    <select id="nearby" name="nearby">
+                            <option value="restaurant">Restaurant</option>
+                            <option value="hospital">Hospital</option>
+                            <option value="museum">Museum</option>
+                            <option value="supermarket">Supermarket</option>
+                        </select>
+                </td>
+                <td class="mapthing_td">
+                    <button onclick="placeSearch()">Search Near Me</button>
+                </td>
+            </tr>
+            <tr class="mapthing_td">
+                <td class="mapthing_td">
+                    Destination:
+                    <input id="destination" type="text" name="destination">
+                </td>
+                <td class="mapthing_td">
+                    Mode of Travel:
+                    <select id="travel" name="travel">
+                            <option value="DRIVING">Driving</option>
+                            <option value="WALKING">Walking</option>
+                            <option value="BICYCLING">Bicycling</option>
+                            <option value="TRANSIT">Transit</option>
+                        </select>
+                </td>
+                <td class="mapthing_td">
+                    <button onclick="calcRoute()">Get Directions</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="mapthing" id="map"></div>
+    <div id="directionsPanel"></div>
+    <p>Tested in Google Chrome</p>
+    <script src="scripts.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsYCaTuIZl14GkjLC2OzUMs3EmHu8m0gE&libraries=places&callback=initMap" async defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+Group 15
+Wyatt Kormick
+Kieran Kelly
+Hoang Nguyen
+
+
+Part 4:
+Latency: The latency to get from host 1 to host 4 should be the sums of the latencies
+to get from h1 to h2, from h2 to h3, and from h3 to h4. Our prediction is 140ms because
+L1 had an average latency of 80ms, L2 had an average latency of 20ms, and L3 has an
+average latency of 40ms.
+
+Throughput: Throughput along a path is limited by the lowest throughput link along
+the path. The throughput to get from host 1 to host 4 should be the minimum of the
+ throughputs of l1, l2, and l3. Since our minimum was '17.7 Mbits/sec', '20.5 Mbits/sec',
+ our prediction is somewhere around '17.5 Mbits/sec', '20.5 Mbits/sec'
+
+ Results:
+ Average Latency: 140.976ms
+ Throughput: '17.2 Mbits/sec', '20.9 Mbits/sec'
+
+Both of our conditions were correct.

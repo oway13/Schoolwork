@@ -1,0 +1,25 @@
+PREPROCESSING(A)
+	Let k be the largest element in A
+	Let C[0...k] be a new array
+	for i = 0 to k  			//O(k)
+		C[i] = 0
+	for j = 1 to A.length		//O(n)
+		C[A[j]] = C[A[j]]+1
+	for i = 1 to k				//O(k)
+		C[i] = C[i]+C[i-1]
+	return C
+//Exactly the same as the preprocessing part
+//	of COUNTING-SORT
+//Returns an array that contains the sum of the count of each
+//	element in A from 0 to k
+
+QUERY(A, a, b)
+	Let C[] be a new array
+	if b > a
+		C = Preprocessing(A) 	//O(n+2k)
+		return C[b + 1] - C[a+1] //O(1)
+//Subtracts the total amount of elements at the lower end
+//from the total amount at the upper end to get the amount
+//between
+	
+	

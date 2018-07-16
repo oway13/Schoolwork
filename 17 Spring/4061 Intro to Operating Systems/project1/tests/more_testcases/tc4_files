@@ -1,0 +1,12 @@
+#Similar to simple_testcase tc4, but the targets are files. test3, test2, test1
+test1.o: test2.o test3.o test1.c
+	gcc -c test1.c
+
+test2.o: test3.o test2.c
+	gcc -c test2.c
+
+test3.o: test3.c
+	gcc -c test3.c
+
+clean:
+	rm -rf test3.o test2.o test1.o

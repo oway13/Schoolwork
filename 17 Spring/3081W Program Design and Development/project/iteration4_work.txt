@@ -1,0 +1,2 @@
+Wyatt implemented the CppCode in ast.h. Wyatt and Andrew both worked on different parts of Matrix.cc. The function matrix_read was written and tweaked by both students. Wyatt implemented the overloading of operators within Matrix.cc. Andrew wrote the code for my_code_1 and my_code_2. 
+

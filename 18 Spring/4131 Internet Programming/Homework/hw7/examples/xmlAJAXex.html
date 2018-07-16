@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function loadXMLDoc()
+{
+var xmlhttp;
+var txt,x,i;
+
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    xmlDoc=xmlhttp.responseXML;
+    txt="";
+    x=xmlDoc.getElementsByTagName("ARTIST");
+    for (i=0;i<x.length;i++)
+      {
+      txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+      }
+	  document.getElementById("myDiv").innerHTML=txt;
+    }
+  } // definition of function assigned to onreadystatechange
+  
+xmlhttp.open("GET","cd_catalog.xml",true);
+xmlhttp.send();
+
+}
+</script>
+</head>
+<body>
+
+<div id="myDiv"><h2>List of Artists to Appear Here</h2></div>
+<button type="button" onclick="loadXMLDoc()">Show Artists in CD Collection</button>
+
+</body>
+</html>

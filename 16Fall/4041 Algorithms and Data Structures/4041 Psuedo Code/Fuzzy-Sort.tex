@@ -1,0 +1,35 @@
+//Assuming The Intervals are nested arrays of length two inside a larger array
+INTERSECTION-SELECTION(A,L,R)
+	If L<R
+		k =RANDOM-INT(L,R) //Random int generates a random integer in the given range
+		l = A[k][0]
+		r = A[k][1]
+		for i = 0 to A.length-1
+			if A[i][0] >= 1 and A[i][1] <= r
+				l = MAXIMUM(l, A[i][0])
+				r = min(r, A[i][1])
+		return l
+
+FUZZY-PARTITION(A,L,R,j)
+	if L < R
+		lft, mid, rt, i = L
+		while i < R
+			left = A[i][0]
+			right = A[i][1]
+			if left <= j and j <= right
+				Swap A[i] with A[mid]
+				mid++
+			else if right < j
+				Swap A[mid] and A[i]
+				Swap A[mid] and A[lft]
+				lft++
+				mid++
+			i++
+	returns lft, mid
+
+FUZZY-SORT(A,L,R)
+	if L < R
+		j = INTERSECTION-SELECTION(A,L,R)
+		mlft, mrt = FUZZY-PARTITION(A,L,R,j)
+		FUZZY-SORT(A,L,mlft)
+		FUZZY-SORT(A,mrt,R)

@@ -1,0 +1,30 @@
+Group 15
+Wyatt Kormick
+Kieran Kelly
+Hoang Nguyen
+
+part3
+xterm1: python ~/pox/pox.py samples.simple_routing
+xterm2: sudo python assign1_topo.py
+xterm2: h1 ping -c20 10.0.0.2 >> latency_L1.txt
+xterm2: h2 ping -c20 10.0.0.3 >> latency_L2.txt
+xterm2: h3 ping -c20 10.0.0.4 >> latency_L3.txt
+xterm2: h3 ping -c20 10.0.0.5 >> latency_L4.txt
+xterm1: ctrl-c
+xterm1: python ~/pox/pox.py samples.simple_routing
+xterm2: iperf h1 h2 >> throughput_L1.txt
+xterm2: iperf h2 h3 >> throughput_L2.txt
+xterm2: iperf h3 h4 >> throughput_L3.txt
+xterm2: iperf h3 h5 >> throughput_L5.txt
+
+part4
+xterm1: python ~/pox/pox.py samples.simple_routing
+xterm2: sudo python assign1_topo.py
+xterm2: h1 ping -c20 10.0.0.4 >> latency_Q3.txt
+xterm1: ctrl-c
+xterm1: python ~/pox/pox.py samples.simple_routing
+xterm2: iperf h1 h4 >> throughput_Q3.txt
+
+part5
+sudo python tree_topo.py
+pingall

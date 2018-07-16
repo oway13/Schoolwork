@@ -1,0 +1,194 @@
+*** This is NuSMV 2.6.0 (compiled on Wed Oct 14 15:36:56 2015)
+*** Enabled addons are: compass
+*** For more information on NuSMV see <http://nusmv.fbk.eu>
+*** or email to <nusmv-users@list.fbk.eu>.
+*** Please report bugs to <Please report bugs to <nusmv-users@fbk.eu>>
+
+*** Copyright (c) 2010-2014, Fondazione Bruno Kessler
+
+*** This version of NuSMV is linked to the CUDD library version 2.4.1
+*** Copyright (c) 1995-2004, Regents of the University of Colorado
+
+*** This version of NuSMV is linked to the MiniSat SAT solver. 
+*** See http://minisat.se/MiniSat.html
+*** Copyright (c) 2003-2006, Niklas Een, Niklas Sorensson
+*** Copyright (c) 2007-2010, Niklas Sorensson
+
+-- specification AG !(mc.mode = HORIGREEN & mc.mode = VERTGREEN)  is true
+-- specification AG (mc.mode = HORIRED -> AF mc.mode = HORIGREEN)  is true
+-- specification A [ mc.mode = VERTYELLOW U (AX mc.mode = VERTGREEN) ]   is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+  -> State: 1.1 <-
+    time_passed = 5
+    hori_sensor = FALSE
+    vert_sensor = FALSE
+    walk_request_vert = FALSE
+    walk_request_hori = FALSE
+    emergency = FALSE
+    mc.mode = HORIGREEN
+    mc.walkmode = NOWALK
+    mc.emergency_drive = FALSE
+    mc.vert_cross = FALSE
+    mc.hori_cross = FALSE
+    mc.vert_slow = FALSE
+    mc.hori_slow = FALSE
+    mc.vert_drive = FALSE
+    mc.hori_drive = TRUE
+  -> State: 1.2 <-
+    time_passed = 6
+-- specification AG !(mc.walkmode = HORIWALK & (mc.mode = VERTGREEN | mc.mode = VERTYELLOW))  is true
+-- specification AG !(mc.walkmode = VERTWALK & (mc.mode = HORIGREEN | mc.mode = HORIYELLOW))  is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+  -> State: 2.1 <-
+    time_passed = 5
+    hori_sensor = FALSE
+    vert_sensor = FALSE
+    walk_request_vert = FALSE
+    walk_request_hori = FALSE
+    emergency = FALSE
+    mc.mode = HORIGREEN
+    mc.walkmode = NOWALK
+    mc.emergency_drive = FALSE
+    mc.vert_cross = FALSE
+    mc.hori_cross = FALSE
+    mc.vert_slow = FALSE
+    mc.hori_slow = FALSE
+    mc.vert_drive = FALSE
+    mc.hori_drive = TRUE
+  -> State: 2.2 <-
+    time_passed = 6
+    walk_request_hori = TRUE
+  -> State: 2.3 <-
+    time_passed = 7
+    mc.walkmode = HORIWALK
+  -> State: 2.4 <-
+    time_passed = 8
+  -> State: 2.5 <-
+    time_passed = 9
+    vert_sensor = TRUE
+  -> State: 2.6 <-
+    time_passed = 10
+    vert_sensor = FALSE
+    walk_request_hori = FALSE
+    mc.mode = HORIYELLOW
+    mc.hori_slow = TRUE
+    mc.hori_drive = FALSE
+  -> State: 2.7 <-
+    time_passed = 11
+    walk_request_vert = TRUE
+    emergency = TRUE
+    mc.mode = VERTGREEN
+    mc.walkmode = NOWALK
+    mc.hori_slow = FALSE
+    mc.vert_drive = TRUE
+  -> State: 2.8 <-
+    time_passed = 12
+    walk_request_vert = FALSE
+    emergency = FALSE
+    mc.mode = NOGO
+    mc.walkmode = VERTWALK
+    mc.emergency_drive = TRUE
+    mc.vert_drive = FALSE
+  -> State: 2.9 <-
+    time_passed = 13
+    mc.mode = HORIGREEN
+    mc.emergency_drive = FALSE
+    mc.hori_drive = TRUE
+-- specification AG ((mc.walkmode = NOWALK & walk_request_hori) -> AF (mc.walkmode = HORIWALK & !walk_request_hori))  is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+  -> State: 3.1 <-
+    time_passed = 5
+    hori_sensor = FALSE
+    vert_sensor = FALSE
+    walk_request_vert = FALSE
+    walk_request_hori = FALSE
+    emergency = FALSE
+    mc.mode = HORIGREEN
+    mc.walkmode = NOWALK
+    mc.emergency_drive = FALSE
+    mc.vert_cross = FALSE
+    mc.hori_cross = FALSE
+    mc.vert_slow = FALSE
+    mc.hori_slow = FALSE
+    mc.vert_drive = FALSE
+    mc.hori_drive = TRUE
+  -- Loop starts here
+  -> State: 3.2 <-
+    time_passed = 6
+    walk_request_hori = TRUE
+  -> State: 3.3 <-
+    time_passed = 7
+    mc.walkmode = HORIWALK
+  -> State: 3.4 <-
+    time_passed = 8
+  -> State: 3.5 <-
+    time_passed = 9
+    vert_sensor = TRUE
+  -> State: 3.6 <-
+    time_passed = 10
+    vert_sensor = FALSE
+    mc.mode = HORIYELLOW
+    mc.hori_slow = TRUE
+    mc.hori_drive = FALSE
+  -> State: 3.7 <-
+    time_passed = 11
+    hori_sensor = TRUE
+    vert_sensor = TRUE
+    walk_request_vert = TRUE
+    walk_request_hori = FALSE
+    mc.mode = VERTGREEN
+    mc.walkmode = NOWALK
+    mc.hori_slow = FALSE
+    mc.vert_drive = TRUE
+  -> State: 3.8 <-
+    time_passed = 12
+    mc.walkmode = VERTWALK
+  -> State: 3.9 <-
+    time_passed = 13
+  -> State: 3.10 <-
+    time_passed = 14
+  -> State: 3.11 <-
+    time_passed = 15
+  -> State: 3.12 <-
+    time_passed = 16
+  -> State: 3.13 <-
+    time_passed = 17
+  -> State: 3.14 <-
+    time_passed = 18
+  -> State: 3.15 <-
+    time_passed = 19
+    hori_sensor = FALSE
+    vert_sensor = FALSE
+    emergency = TRUE
+  -> State: 3.16 <-
+    time_passed = 20
+    walk_request_vert = FALSE
+    emergency = FALSE
+    mc.mode = NOGO
+    mc.emergency_drive = TRUE
+    mc.vert_drive = FALSE
+  -> State: 3.17 <-
+    time_passed = 0
+    mc.mode = HORIGREEN
+    mc.emergency_drive = FALSE
+    mc.hori_drive = TRUE
+  -> State: 3.18 <-
+    time_passed = 1
+    mc.walkmode = NOWALK
+  -> State: 3.19 <-
+    time_passed = 2
+  -> State: 3.20 <-
+    time_passed = 3
+  -> State: 3.21 <-
+    time_passed = 4
+  -> State: 3.22 <-
+    time_passed = 5
+  -> State: 3.23 <-
+    time_passed = 6
+    walk_request_hori = TRUE

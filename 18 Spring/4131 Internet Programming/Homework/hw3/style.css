@@ -1,0 +1,127 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: darkslategray
+}
+
+nav {
+    background-color: skyblue;
+    margin-bottom: 1em;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: skyblue;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: deepskyblue;
+}
+
+.active {
+    background-color: dodgerblue;
+}
+
+#places {
+    margin-left: 3%;
+    height: 400px;
+    margin-right: 2%;
+    width: 95%
+}
+
+td,
+tr {
+    border-collapse: collapse;
+    border-color: white;
+    border-width: thick;
+    background-color: deepskyblue;
+}
+
+.table {
+    display: inline-block;
+    width: 70%;
+
+}
+
+.twitter {
+    width: 20%;
+    display: inline-block;
+    margin-bottom: 1em;
+}
+
+/*
+img{
+    margin-left: 3em;
+    width: 50em;
+}
+*/
+
+.mapthing {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.mapthing_td {
+    background-color: transparent;
+    width: 2%;
+    text-align: left;
+    color: white;
+}
+
+input,
+select {
+    float: right;
+    margin-right: 10%;
+}
+
+#map {
+    height: 50%;
+    margin-left: 5%;
+    margin-right: 1%;
+    float: left;
+    width: 69%;
+    display: inline;
+    margin-bottom: 2em;
+}
+
+
+p {
+    color: white;
+}
+
+button {
+    background-color: mediumseagreen;
+    border: none;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-top: 5px;
+
+}
+
+#directionsPanel {
+    float: right;
+    width: 25%;
+    height 100%;
+    background-color: aliceblue
+}

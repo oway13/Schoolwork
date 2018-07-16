@@ -1,0 +1,14 @@
+DJIKSTRA-RELIABILITY(G,w,s)
+	INITIALIZE-SINGLE-SOURCE(G,s)
+	S=0
+	Q=G.V
+	while Q != 0
+		u = EXTRACT-MAX(Q)
+		S=union(S, {u})
+		for each vertex v in G.Adj[u]
+			RELAX-RELIABILITY(u,v,w)
+
+RELAX-RELIABILITY(u,v,w)
+	if v.f < u.d + w(u,v)
+		v.d = u.d+w(u,v)
+		v.pi  = u

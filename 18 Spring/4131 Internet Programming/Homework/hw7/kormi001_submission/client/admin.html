@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="client/css/style.css">
+    <title>Admin Page</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+          <ul class="nav navbar-nav" id="navbar">
+              <li><a href="/favourites"><b>Favourite places</b></a></li>
+              <li><a href="/addPlace"><b>Add Place</b></a></li>
+              <li><a href="/admin"><b>Admin</b></a></li>
+              <li><a href="/logout"><b>Log Out</b></a></li>
+              <script type="text/javascript" src="client/js/username.js"></script>
+          </ul>
+      </div>
+  </nav>
+    <div class="container">
+        <button onclick=startNewUser()>+ Add User</button>
+        <form name='addUser' method='post' action='/postUser'>
+        <table class="table" id="accountsTable">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Login</th>
+                    <th scope="col">New Password</th>
+                    <th scope="col"> </th>
+                </tr>
+            </thead>
+            <tbody id="acc">
+            </tbody>
+        </table>
+        </form>
+    </div>
+    <script type="text/javascript" src="client/js/admin.js"></script>
+</body>
+
+</html>

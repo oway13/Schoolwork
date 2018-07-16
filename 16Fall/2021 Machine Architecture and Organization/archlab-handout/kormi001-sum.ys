@@ -1,0 +1,32 @@
+#Wyatt Kormick
+#kormi001
+#4932481
+	.pos 0
+	irmovq stack, %rsp
+	irmovq ele1, %rdi
+	call sum							
+	halt	
+					
+	.align 8
+ele1:
+	.quad 0xa00
+	.quad ele2
+ele2:
+	.quad 0x0b0
+	.quad ele3
+ele3: 
+	.quad 0x00c
+	.quad 0
+
+sum:
+	xorq %rax, %rax				
+loop:
+	mrmovq (%rdi), %r8			
+	mrmovq 8(%rdi), %rdi		
+	addq %r8, %rax				
+	andq %rdi, %rdi				
+	jne 	loop				
+	ret
+
+	.pos 0x200
+stack:

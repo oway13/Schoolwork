@@ -1,0 +1,31 @@
+MODULE mode_control(cook_time, clear, start, door)
+VAR
+ mode : {OFF, SETUP, SUSPENDED, COOKING};
+DEFINE
+ running := mode in {SUSPENDED, COOKING};
+ suspended := mode in {SUSPENDED};
+ cooking := mode in {COOKING};
+ shut := door in {CLOSED};
+ASSIGN
+ init(mode) := SETUP;
+ next(mode) := case
+   suspended & cook_time > 0 : shut ? COOKING : SUSPENDED;
+   running & cook_time <= 0 : SETUP;
+   cooking & (clear | shut) : SUSPENDED;
+   suspended & clear : SETUP;
+   suspended & start & shut : COOKING;
+   TRUE : mode;
+ esac;
+
+MODULE main -- microwave
+IVAR
+ clear : boolean;
+ start : boolean;
+VAR
+ door : {OPEN, CLOSED};
+ time : 0..9999;
+ mc : mode_control(time, clear, start, door);
+
+INVARSPEC NAME SafeCook := door = OPEN -> mc.mode != COOKING;
+CTLSPEC   NAME WillCook := AF(mc.mode = COOKING);
+FAIRNESS start;

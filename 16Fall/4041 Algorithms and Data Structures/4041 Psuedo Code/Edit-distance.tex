@@ -1,0 +1,17 @@
+EDIT-DISTANCE(X, Z, a, b)
+	new array s-table[a][b]
+	for i = 0 to a
+		for j = 0 to b
+			if i = 0					//X is empty
+				s-table[i][j] = j 		//Insert all of Z into X
+			else if j = 0				//Z is empty
+				s-table[i][j] = i 		//Delete all of X
+			else if X[i] = Z[j]			//Last chars are the same
+				s-table[i][j] = s-table[i-1][j-1]
+			else
+				s-table[i][j] = 1+ min(
+					s-table[i][j-1],	//Insert
+					s-table[i-1][j],	//Delete
+					s-table[i-2][j-2])	//Twiddle
+	return s-table[a][b]
+EDIT-DISTANCE(X, Z, m, n)

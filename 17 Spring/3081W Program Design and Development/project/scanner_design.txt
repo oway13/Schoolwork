@@ -1,0 +1,29 @@
+Token *Scan(const char* text)
+  If (text is empty): exit
+  num_match = 0, max_match = 0
+  Create two tokens, (first and current, with first pointing to current)
+  Define all Regular Expressions
+  Remove Leading Whitespace and Comments
+  While (text != EOF)
+    Token terminal is lexical error
+    max_match = 0
+    Test Lowest Priority Regular Expression to beginning of text
+      If it matches,
+        Token's lexeme is the matched letters,
+        terminal is the matched regex corresponding token type
+      max_match = num_match
+    Test Next highest priority Regex
+      If it matches and the num_match is higher than max_match
+        set new lexeme and terminal
+    Repeat for all Regular Expressions in order of increasing priority
+    If the terminal type is still lexical error, do something?
+    Else, the best matching regex has been found
+    Create a new token and set our current token pointer to it
+    Remove Leading Whitespace and Comments
+  EndWhile
+  Set our newest token to EndofFile type with lexeme \0
+  Return the pointer to our first token
+
+Should return a pointer to the first token of a linked list of tokens
+  This linked list will be all of the tokens of the input text in order,
+  Terminating the linked list will be a kEndOfFile token.

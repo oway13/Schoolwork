@@ -1,0 +1,33 @@
+Students:
+1. Wyatt Kormick (kormi001)
+
+Brief Summary:
+	A time stamp entry was created for each buffer, and as each buffer was unpinned (used)
+it would be given the value of an incrementer variable that counted the number of these unpins.
+To check for a buffer to replace, the program now iterates through each buffer and selects the
+buffer with the highest time stamp value and 0 pins. The time stamp values in each buffer was
+printed to the console in a similar loop, every time a buffer was replaced. The result of the
+replacement was also printed at this time. My solution maintains many useful parts of the clock
+algorithm, but the clock plays no part in my implemented replacement policy.
+
+Detailed Changes:
+1. freelist.c: src/backend/storage/buffer/freelist.c
+	- Line 173-185: Created PrintCandidates function. Prints comma separated list of
+								unpinned buffer id's and their MRU timestamps.
+	- Lines 314-388: Replaced clock cycle algorithm with MRU algorithm. Iterates through
+									buffers, picking the one with the highest MRU timestamp that has 0
+									pins.
+
+2. buf_internals.h: src/include/storage/buf_internals.h
+	- Line 188: Added timestamp int to the BufferDesc struct.
+
+3. bufmgr.c: src/backend/storage/buffer/bufmgr.c
+	- Line 180: created MRU_counter variable. Initialized to 1.
+	- Line 1685: Assign the current MRU_counter value to every buffer that is unpinned,
+							 and increment the counter.
+	- Line 1280: Added print statement to indicate what buffer is getting replaced, and
+							 what its timestamp is.
+	- Line 1061: Added call to my PrintCandidates function.
+
+4. buf_init.c: src/backend/storage/buffer/buf_init.c
+	- Line 140: Initializes timestamps of buffers to 0.

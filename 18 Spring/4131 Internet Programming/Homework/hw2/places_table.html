@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <script>
+			function chgimg(name, txt) {
+				var theimage = document.getElementById("image");
+				theimage.src = name;
+				theimage.alt = txt;
+			}
+		</script>
+        <title>HW2 Places</title>
+    </head>
+    <body>
+        <nav>
+            <a class="navb" href="places_table.html">My Places</a>
+            <a class="navb" href="input_form.html">Form Input</a>
+        </nav>
+            <div class="table">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Hours of Operation</th>
+                        <th>Additional Information</th>
+                    </tr>
+                    <tr>
+                        <td onclick="chgimg('uv_image.jpg', 'University Village')">University village</td>
+                        <td>2601 University Ave SE, Minneapolis, MN 55414</td> 
+                        <td>8:30AM-5PM</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td onclick="chgimg('canes_image.jpg', 'Raising Canes')">Raising Cane's Chicken Fingers</td>
+                        <td>825 Washington Ave SE, Minneapolis, MN 55414</td> 
+                        <td>10:00AM-11PM</td>
+                        <td>
+                            <a href="https://www.raisingcanes.com/" target="_blank">Link</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td onclick="chgimg('keller_image.jpg', 'Keller Hall')">Keller Hall</td>
+                        <td>200 Union Street SE, Minneapolis, MN 55455</td> 
+                        <td>6:00AM-10:00PM</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td onclick="chgimg('yudof_image.jpg', 'Yudof Hall')">Yudof Hall</td>
+                        <td>220 Delaware St SE, Minneapolis, MN 55455</td> 
+                        <td>12:00AM-11:59PM</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table">
+                <a class="twitter-timeline"  href="https://twitter.com/search?q=%23UMN%20%23UMNDriven" data-widget-id="959187214881230850" >Tweets about #UMN #UMNDriven</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+        <div>
+            <img id="image" src="gophers-mascot.png" alt="Goldy Gopher">
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,27 @@
+    h1,
+    p,
+    ul {
+        text-align: center !important;
+    }
+    
+    #myFavTable.thead {
+        text-align: center;
+    }
+    
+    .headers {
+        text-align: center;
+        background-color: #95c188;
+        height: 8em;
+        margin-bottom: 1em;
+        font-size: 2em;
+    }
+    
+    #response {
+        text-align: center;
+        font-size: 1em;
+        color: red;
+    }
+    
+    #form {
+        text-align: center;
+    }

@@ -1,0 +1,2 @@
+www.google.com:216.58.192.228
+youtube.com:216.58.192.238

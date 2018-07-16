@@ -1,0 +1,26 @@
+\documentclass{article}
+\begin{document}
+
+FLOYD-WARSHALL-NEW(W) \\
+\phantom{ayylmao} n = W.rows \\
+\phantom{ayylmao}let $\Pi_{(0)}$ = ($\pi_{ij}^{(0)}$) be a new n x n matrix \\
+\phantom{ayylmao}for i = 1 to n \\
+\phantom{ayylmao}\phantom{ayy}for j = 1 to n\\
+\phantom{ayylmao}\phantom{ayy}\phantom{ayy}if i = j or w$_{ij}$ = infinity\\
+\phantom{ayylmao}\phantom{ayy}\phantom{ayy}\phantom{ayy}$\pi_{ij}^{(0)}$ = null\\
+\phantom{ayylmao}\phantom{ayy}\phantom{ayy}else\\
+\phantom{ayylmao}\phantom{ayy}\phantom{ayy}\phantom{ayy}$\pi_{ij}^{(0)}$ = i\\
+\phantom{ayylmao} D$^{(0)}$ = W\\
+\phantom{ayylmao} for k = 1 to n \\
+\phantom{ayylmao}\phantom{ayy}let D$^{(k)}$ = (d$_{ij}^{(k)}$) be a new n x n matrix\\
+\phantom{ayylmao}\phantom{ayy}for i = 1 to n\\
+\phantom{ayylmao}\phantom{ayy}\phantom{ayy}for j = 1 to n\\
+\phantom{ayylmao}\phantom{ayy}\phantom{ayy}\phantom{ayy} if d$_{ij}^{(k-1)} \leq$  d$_{ik}^{(k-1)}$+d$_{kj}^{(k-1)}$ \\
+\phantom{ayylmao}\phantom{ayy}\phantom{ayy}\phantom{ayy}\phantom{ayy}$\pi_{ij}^{(k)}$ = $\pi_{ij}^{(k-1)}$ \\
+\phantom{ayylmao}\phantom{ayy}\phantom{ayy}\phantom{ayy}else\\
+\phantom{ayylmao}\phantom{ayy}\phantom{ayy}\phantom{ayy}\phantom{ayy} $\pi_{ij}^{(k)}$ = $\pi_{kj}^{(k-1)}$\\
+\phantom{ayylmao}\phantom{ayy}\phantom{ayy}\phantom{ayy}	d$_{ij}^{(k)}$ = min(d$_{ij}^{(k-1)}$, d$_{ik}^{(k-1)}$+d$_{kj}^{(k-1)}$)\\
+\phantom{ayylmao}return D$^{(n)}$, $\Pi^{(n)}$
+
+	
+\end{document}			

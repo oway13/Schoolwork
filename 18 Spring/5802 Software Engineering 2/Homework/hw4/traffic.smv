@@ -1,0 +1,59 @@
+MODULE mode_control(hori_sensor, vert_sensor, time_passed, emergency, walk_request_hori, walk_request_vert)
+VAR
+ mode : {HORIGREEN, HORIYELLOW, HORIRED, VERTGREEN, VERTYELLOW, VERTRED, NOGO};
+ walkmode : {HORIWALK, VERTWALK, NOWALK};
+DEFINE
+ hori_drive := mode in {HORIGREEN, VERTRED};
+ vert_drive := mode in {VERTGREEN, HORIRED};
+ hori_slow := mode in {HORIYELLOW, VERTRED};
+ vert_slow := mode in {VERTYELLOW, HORIRED};
+ hori_cross := mode in {HORIWALK};
+ vert_cross := mode in {VERTWALK};
+ emergency_drive := mode in {NOGO};
+ASSIGN
+ init(mode) := HORIGREEN;
+ init(walkmode) := NOWALK;
+ next(mode) := case
+   hori_drive & time_passed > 20 : HORIYELLOW;
+   vert_drive & time_passed > 20 : VERTYELLOW;
+   hori_slow & time_passed > 5 : VERTGREEN;
+   vert_slow & time_passed > 5 : HORIGREEN;
+   (hori_drive | vert_drive | hori_slow | vert_slow) & emergency : NOGO;
+   hori_drive & vert_sensor & !hori_sensor & time_passed > 8 : HORIYELLOW;
+   vert_drive & hori_sensor & !vert_sensor & time_passed > 8 : VERTYELLOW;
+   emergency_drive & !emergency & time_passed > 10 : HORIGREEN;
+   TRUE : mode;
+esac;
+ next(walkmode) := case
+  hori_drive : walk_request_hori ? HORIWALK : NOWALK;
+  vert_drive : walk_request_vert ? VERTWALK : NOWALK;
+  (hori_cross  & time_passed > 10) | vert_drive : NOWALK;
+  (vert_cross  & time_passed > 10) | hori_drive : NOWALK;
+  hori_slow : NOWALK;
+ vert_slow : NOWALK;
+
+
+  emergency : NOWALK;
+  TRUE : walkmode;
+ esac;
+MODULE main
+	  VAR
+      time_passed : 0..9999;
+      hori_sensor : boolean;
+      vert_sensor : boolean;
+      walk_request_vert : boolean;
+      walk_request_hori : boolean;
+      emergency : boolean;
+      mc : mode_control(hori_sensor, vert_sensor, time_passed, emergency, walk_request_hori, walk_request_vert);
+      TRANS
+        case
+          time_passed = 20 : next(time_passed) = 0;
+          TRUE : next(time_passed) = time_passed + 1;
+      esac;
+
+--CTLSPEC AG!(mc.mode = HORIGREEN & mc.walkmode = NOWALK & EX(mc.mode = HORIGREEN & mc.walkmode = HORIWALK));
+--CTLSPEC AG!(mc.mode = VERTGREEN & mc.walkmode = NOWALK);
+--CTLSPEC AG!(mc.mode = VERTGREEN & mc.walkmode = VERTWALK);
+--CTLSPEC AG!(mc.mode = HORIGREEN & mc.walkmode = HORIWALK);
+--CTLSPEC AG!(mc.mode = HORIYELLOW &  mc.walkmode = NOWALK & EX(mc.mode = VERTGREEN & mc.walkmode = NOWALK));
+CTLSPEC AG!(mc.mode = VERTGREEN & mc.walkmode = VERTWALK & EX(mc.mode = VERTYELLOW & mc.walkmode = NOWALK));

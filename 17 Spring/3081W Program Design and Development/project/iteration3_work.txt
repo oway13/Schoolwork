@@ -1,0 +1,8 @@
+The design of the classes was done jointly with Wyatt focusing on the statements
+and declarations while Andrew focused on the expressions. Wyatt implemented the 
+classes into ast.h and Andrew compared results from the classes and the sample 
+texts to fix bugs in the code. Wyatt modified all of the functions in parser.cc
+to create the AST using the classes in ast.h.
+
+The UML diagram has been provided as a .pdf file, but it isn't the most readable
+format for it. The .html version has been provided as a more readable format.

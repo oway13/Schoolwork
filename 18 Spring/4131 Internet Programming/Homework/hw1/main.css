@@ -1,0 +1,20 @@
+th, td {
+    border: 3px solid black;
+    border-collapse: collapse;
+    background-color: #ffcc33;
+}
+
+table{
+    color: #7a0019;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+h1 {
+    #font-size: 48px;
+    color: #7a0019;
+    text-align: center;
+}

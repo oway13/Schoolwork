@@ -1,0 +1,20 @@
+Students:
+1. Wyatt Kormick (kormi001)
+
+
+Brief Summary:
+I found two functions in the initsplan.c file: check_mergejoinable() and
+check_hashjoinable().These functions are what the optimizer use to see if the join
+can be done with a hash join or a merge join. In these functions, I commented out
+the lines that actually changed the restrictinfo mergejoinable and hashjoinable fields.
+By doing this, the optimizer will always think that hash join and merge join are
+not viable. Every time the optimizer would select a hash join or merge join over a
+nested loop join, it will do a nested loop join. This also allows it to use a
+FULL JOIN wherever it would have before.
+
+Detailed Changes:
+1. initsplan.c: src/backend/optimizer/plan/initsplan.c
+    Lines 2546-2548: Commented out final if statement that tells the optimizer that
+                    a hash join is viable.
+    Lines 2509-2511: Commented out final if statement that tells the optimizer that
+                    a merge join is viable.

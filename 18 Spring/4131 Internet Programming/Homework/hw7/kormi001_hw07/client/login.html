@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<!--//TODO: login page -->
+
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="client/css/style.css">
+    <title>Login Page</title>
+</head>
+
+<body>
+    <div class="headers">
+        <h1>Welcome, log in below</h1>
+        <p id="response"></p>
+    </div>
+    <div id="form">
+        <form name="login" method="post" action="/validateLoginDetails">
+            <input type="text" name="username" required>
+            <input type="password" name="password" required>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>

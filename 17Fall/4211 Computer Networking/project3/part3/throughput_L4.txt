@@ -1,0 +1,2 @@
+*** Iperf: testing TCP bandwidth between h3 and h5
+*** Results: ['18.5 Mbits/sec', '21.7 Mbits/sec']

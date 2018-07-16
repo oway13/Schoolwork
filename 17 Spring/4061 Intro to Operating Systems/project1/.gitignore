@@ -1,0 +1,10 @@
+# Project 1 .gitignore
+
+src/make4061
+src/project1.tar.gz
+
+tests/**/*.o
+tests/**/*.a
+tests/make_testcase/make4061_test
+
+**/*.swp

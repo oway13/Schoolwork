@@ -1,0 +1,11 @@
+REPRINT-LCS(X,Y,c-table,a,b)
+	if a = 0 or b = 0
+		return
+	if X[a] = Y[b]
+		REPRINT-LCS(X,Y,c-table,a-1,b-1)     //Move to Upper-Left
+		print X[a]
+	else if c-table[a-1, b] >= c-table[a,b-1]
+		REPRINT-LCS(X,Y,c-table,a-1,b) 	  //Move Up
+	else
+		REPRINT-LCS(X,Y,c-table,a,b-1)	  //Move Left
+REPRINT-LCS(X,Y,c,m,n)

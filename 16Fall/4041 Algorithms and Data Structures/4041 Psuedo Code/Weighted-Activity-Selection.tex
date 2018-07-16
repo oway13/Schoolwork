@@ -1,0 +1,31 @@
+//Assume Sorted in increasing order by finish time
+//Format of Activity Array: 
+//{{start-time1,finish-time1,value1}, {start-time2, finish-time2, value2}, etc}
+WEIGHT-ACT-SELECT( activity[][])
+	n = length(activity)
+	new array s-table[n]
+	for i = 1 to n
+		val = activity[i][3]
+		prev = FIND-PREV-ACTIVITY(activity, i)
+		if prev != -1
+			val = val + s-table[prev]
+		//If a previous activity was found
+		//Add its value to the value of our current
+		s-table[i] = max(val, s-table[i-1])
+		//Determine if its better to include or exclude
+	return table[n]
+		
+FIND-PREV-ACTIVITY(activity[][], i)
+	for j = i-1 down to 0
+		if activity[j][2] < activity[i][1]
+			return j
+	return -1
+	//search for an activity with a finish time
+	//less than or equal to the start of our current activity
+	//Return its index if found, Return -1 if one isn't found
+
+
+
+
+
+

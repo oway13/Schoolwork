@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type = "text/xsl" href = "sports.xsl"?>
+<!-- mysports.xml -->
+<!-- Sports Database -->
+<sports>
+  <game id="783">
+    <name>Cricket</name>
+    <paragraph>
+         More popular among commonwealth nations.
+      </paragraph>
+  </game>
+  <game id="239">
+    <name>Baseball</name>
+    <paragraph>
+         More popular in America.
+      </paragraph>
+  </game>
+  <game id="418">
+    <name>Soccer (Futbol)</name>
+    <paragraph>
+         Most popular sport in the world.
+      </paragraph>
+  </game>
+  <game id="642">
+    <name>Golf</name>
+    <paragraph>Game of great skill, some would say it is a hobby</paragraph>
+  </game>
+  <game id="724">
+    <name>Basketball</name>
+    <paragraph>Invented in America, a game requiring great skill and athletecism</paragraph>
+  </game>
+</sports>

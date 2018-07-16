@@ -1,0 +1,22 @@
+Set-Difference(S, x)
+	for i=0 to n-2							n-1
+		for k = i+1 to n-1					(n-1) logn
+			if S[i]-S[k] == x or S[k]-S[i] == x 	((n-1)logn)-1
+				return true					1
+	return false								1
+
+Set-Difference(S, x)
+	n=S.length				1
+	i =  1					1
+	k = n-1 				1
+	Merge-Sort(S, 0, n-1)		nlogn
+	while i < k				n
+		if S[k] - S[i] == x 		n
+			return true
+		else if S[k] - S[i] < x 	n
+			k = k - 1
+		else				n
+			i = i + 1
+	return false				1
+			
+		
